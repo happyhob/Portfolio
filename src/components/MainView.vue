@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <!-- Header -->
-    <header class="header">
+    <header class="header" :class="{'scrolled':isScroll}">
       <div class="header-container">
         <div class="brand">HBL's Portfolio</div>
         <button class="hamburger" @click="toggleMenu">☰</button>
@@ -18,23 +18,23 @@
     <!-- Main Content -->
     <main class="main-content">
       <section id="title" class="section title">
-        <h2 id="name">'이호빈' 개발자 포트폴리오</h2>
+        <h2 id="name">"이호빈"의 포트폴리오</h2>
+        <font-awesome-icon icon="handshake" size="2xl" style="margin-top: 20px;" />
         <h2 id="split-bar"></h2>
         <p id="sub-title">"안녕하세요. 실천하는 개발자 이호빈입니다.</p>
         <p id="sub-title">실천하는 사람만이 기회를 꿈 꿀 수 있다고 생각합니다</p>
         <p id="sub-title">저는 꾸준하게 자기개발을 실천하는 개발자입니다"</p>
       </section>
       <section id="about" class="section about">
-        <AboutMe/>
+        <AboutMe />
       </section>
 
       <section id="skills" class="section skills">
-        <Skills/>
+        <Skills />
       </section>
 
       <section id="archiving" class="section archiving">
-        <h2>Archiving</h2>
-        <p>Include links to your GitHub, blog, or other repositories.</p>
+        <Archiving/>
       </section>
 
       <section id="projects" class="section projects">
@@ -58,11 +58,16 @@
 <script>
 import AboutMe from './Index/AbountMe.vue'
 import Skills from './Index/Skills.vue'
+import Archiving from './Index/Archiving.vue'
 export default {
   data() {
     return {
       isMenuOpen: false,
+      isScroll:false,
     };
+  },
+  mounted(){
+    window.addEventListener('scroll',this.handleScroll);
   },
   methods: {
     toggleMenu() {
@@ -71,11 +76,16 @@ export default {
     closeMenu() {
       this.isMenuOpen = false;
     },
+    handleScroll() {
+      // 스크롤 위치 확인
+      this.isScroll = window.scrollY > 100;
+    },
   },
-  components:{
+  components: {
     AboutMe,
     Skills,
-  }
+    Archiving,
+  },
 };
 </script>
 
@@ -103,8 +113,13 @@ body {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #575047;
+  /* background-color: #575047; */
   color: #fff;
+  padding: 20px;
+  transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+}
+.header.scrolled {
+  background-color: #3d3c3c; /* 스크롤 시 배경색 추가 */
 }
 
 .header-container {
@@ -113,13 +128,13 @@ body {
   align-items: center;
   padding: 10px 20px;
   margin: 0 auto;
-  max-width: 71.25rem;
+  max-width: 77.25rem;
   /*창이 넓어져도 max 값으로 고정||rem:루트 글꼴 크기의 root font size의 배수를 의미, 기본 브라우저 글꼴 크기 16px, 1rem = 16px  71.25rem*16px = 1140px*/
   border-bottom: 2px solid #978f84;
 }
 
 .brand {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
 }
 
@@ -155,7 +170,7 @@ body {
 }
 
 .section {
-  padding: 60px 20px;
+  padding: 100px 20px;
   border-bottom: 1px solid #ddd;
   width: 100%;
   /* 부모 요소의 너비를 100%로 차지 */
@@ -171,7 +186,7 @@ body {
   50%: 개병 이미지의 위치 설정 50%는 가로축 중심에 이미지를 정렬한다는 의미
   no-repeat: 개병 이미지 반복 x 설정
   */
-  background: linear-gradient(180deg, rgba(112, 93, 80, 0.8) 0, rgba(112, 93, 80, 0.8) 90%), url("../../public/developer2.jpg") 50% no-repeat;
+  background: linear-gradient(180deg, rgba(14, 13, 13, 0.8) 0, rgba(77, 63, 54, 0.8) 90%), url("../../public/developer2.jpg") 50% no-repeat;
   background-size: cover;
   /* 이미지가 컨테이너 크기에 맞게 조정 */
   height: 600px;
@@ -179,10 +194,14 @@ body {
 }
 
 #name {
+  white-space: nowrap;
+  /* 기본적으로 줄바꿈 없음 */
   margin-top: 100px;
   font-size: 55px;
-  font-weight:900;
+  font-weight: 900;
   color: #e9e3e3;
+  font-family: Arial;
+  font-style: italic;
 }
 
 #split-bar {
@@ -190,14 +209,15 @@ body {
   margin: 1.5rem auto;
   border-top: .3rem solid #db5c2a;
   opacity: 1;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 #sub-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: #c4bdbd;
   margin-top: 10px;
+  font-style: italic;
 }
 
 .about {
@@ -209,7 +229,7 @@ body {
 }
 
 .archiving {
-  background-color: #504f4f;
+  background-color: #ca4d4d;
 }
 
 .projects {
@@ -227,6 +247,7 @@ body {
   color: #fff;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hamburger {
@@ -242,10 +263,24 @@ body {
     width: 100%;
     background-color: #333;
     padding: 10px;
+
   }
 
   .navbar-menu.open {
     display: flex;
+  }
+
+  #name {
+    white-space: pre-line;
+    /* 모바일에서 줄바꿈 허용 */
+    font-size: 30px;
+    /* 모바일에서 텍스트 크기 조정 */
+    text-align: center;
+    /* 텍스트 중앙 정렬 */
+  }
+
+  #sub-title {
+    font-size: 13px;
   }
 }
 </style>

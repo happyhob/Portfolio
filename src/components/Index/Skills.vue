@@ -25,7 +25,7 @@
                     <p>Frontend</p>
                 </div>
                 <div id="skills-item-content">
-                    <p id="skills-item-element">React Js</p>
+                    <p id="skills-item-element">React(jsx)</p>
                     <p id="skills-item-element">vue.js</p>
                     <p id="skills-item-element">Node.js</p>
                     <p id="skills-item-element">Three.js</p>
@@ -35,7 +35,7 @@
             </div>
             <div class="skills-item">
                 <div id="skills-item-label">
-                    <font-awesome-icon icon="database" />
+                    <font-awesome-icon icon="server" />
                     <p>Backend</p>
                 </div>
                 <div id="skills-item-content">
