@@ -111,7 +111,7 @@ export default {
     max-width: 1400px;
     text-align: center;
     padding: 20px;
-    background-color: #e0b4b4;
+    background-color: #f7f6f6;
     border-radius: 10px;
     /* 둥근 모서리 */
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
@@ -123,6 +123,8 @@ export default {
     /* 3열 레이아웃 */
     box-sizing: border-box;
     margin-bottom: 20px;
+    margin-top: 10px;
+    
     /* 아래쪽 간격 */
 }
 
