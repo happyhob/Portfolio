@@ -1,70 +1,81 @@
 <template>
-    <div class="root">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-container">
-                <div class="brand">My Portfolio</div>
-                <button class="hamburger" @click="toggleMenu">☰</button>
-                <ul class="navbar-menu" :class="{ open: isMenuOpen }">
-                    <li><a href="#about" @click="closeMenu">About Me</a></li>
-                    <li><a href="#skills" @click="closeMenu">Skills</a></li>
-                    <li><a href="#archiving" @click="closeMenu">Archiving</a></li>
-                    <li><a href="#projects" @click="closeMenu">Projects</a></li>
-                    <li><a href="#career" @click="closeMenu">Career</a></li>
-                </ul>
-            </div>
-        </header>
+  <div class="root">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-container">
+        <div class="brand">HBL's Portfolio</div>
+        <button class="hamburger" @click="toggleMenu">☰</button>
+        <ul class="navbar-menu" :class="{ open: isMenuOpen }">
+          <li><a href="#about" @click="closeMenu">About Me</a></li>
+          <li><a href="#skills" @click="closeMenu">Skills</a></li>
+          <li><a href="#archiving" @click="closeMenu">Archiving</a></li>
+          <li><a href="#projects" @click="closeMenu">Projects</a></li>
+          <li><a href="#career" @click="closeMenu">Career</a></li>
+        </ul>
+      </div>
+    </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <section id="about" class="section about">
-                <h2>About Me</h2>
-                <p>Introduce yourself here.</p>
-            </section>
+    <!-- Main Content -->
+    <main class="main-content">
+      <section id="title" class="section title">
+        <h2 id="name">'이호빈' 개발자 포트폴리오</h2>
+        <h2 id="split-bar"></h2>
+        <p id="sub-title">"안녕하세요. 실천하는 개발자 이호빈입니다.</p>
+        <p id="sub-title">실천하는 사람만이 기회를 꿈 꿀 수 있다고 생각합니다</p>
+        <p id="sub-title">저는 꾸준하게 자기개발을 실천하는 개발자입니다"</p>
+      </section>
+      <section id="about" class="section about">
+        <AboutMe/>
+      </section>
 
-            <section id="skills" class="section skills">
-                <h2>Skills</h2>
-                <p>Showcase your technical skills and expertise.</p>
-            </section>
+      <section id="skills" class="section skills">
+        <Skills/>
+      </section>
 
-            <section id="archiving" class="section archiving">
-                <h2>Archiving</h2>
-                <p>Include links to your GitHub, blog, or other repositories.</p>
-            </section>
+      <section id="archiving" class="section archiving">
+        <h2>Archiving</h2>
+        <p>Include links to your GitHub, blog, or other repositories.</p>
+      </section>
 
-            <section id="projects" class="section projects">
-                <h2>Projects</h2>
-                <p>Highlight your most significant projects and achievements.</p>
-            </section>
+      <section id="projects" class="section projects">
+        <h2>Projects</h2>
+        <p>Highlight your most significant projects and achievements.</p>
+      </section>
 
-            <section id="career" class="section career">
-                <h2>Career</h2>
-                <p>Summarize your professional experience and career milestones.</p>
-            </section>
-        </main>
+      <section id="career" class="section career">
+        <h2>Career</h2>
+        <p>Summarize your professional experience and career milestones.</p>
+      </section>
+    </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 Your Name. All Rights Reserved.</p>
-        </footer>
-    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+    </footer>
+  </div>
 </template>
 
 <script>
+import AboutMe from './Index/AbountMe.vue'
+import Skills from './Index/Skills.vue'
 export default {
-    data() {
-        return {
-            isMenuOpen: false,
-        };
+  data() {
+    return {
+      isMenuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
     },
-    methods: {
-        toggleMenu() {
-            this.isMenuOpen = !this.isMenuOpen;
-        },
-        closeMenu() {
-            this.isMenuOpen = false;
-        },
+    closeMenu() {
+      this.isMenuOpen = false;
     },
+  },
+  components:{
+    AboutMe,
+    Skills,
+  }
 };
 </script>
 
@@ -76,7 +87,8 @@ export default {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
 
@@ -91,7 +103,7 @@ html, body {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: #333;
+  background-color: #575047;
   color: #fff;
 }
 
@@ -100,6 +112,10 @@ html, body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  margin: 0 auto;
+  max-width: 71.25rem;
+  /*창이 넓어져도 max 값으로 고정||rem:루트 글꼴 크기의 root font size의 배수를 의미, 기본 브라우저 글꼴 크기 16px, 1rem = 16px  71.25rem*16px = 1140px*/
+  border-bottom: 2px solid #978f84;
 }
 
 .brand {
@@ -133,23 +149,63 @@ html, body {
 }
 
 .main-content {
-  padding-top: 60px;
-  width: 100%; /* 전체 너비 */
+  /* padding-top: 60px; */
+  width: 100%;
+  /* 전체 너비 */
 }
 
 .section {
   padding: 60px 20px;
   border-bottom: 1px solid #ddd;
-  width: 100%; /* 부모 요소의 너비를 100%로 차지 */
-  box-sizing: border-box; /* 패딩 포함 크기 계산 */
+  width: 100%;
+  /* 부모 요소의 너비를 100%로 차지 */
+  box-sizing: border-box;
+  /* 패딩 포함 크기 계산 */
+}
+
+.title {
+  /* 
+  linear-gradient: 점진적 색상 변화, 
+  180deg: 그라데이션 방향, 180도는 위에서 아래로 수직방향의 그라데이션 의미
+  rgba(112,93,80,0.8) 0, rgba(112,93,80,0.8) 90% : 0과 90% 그라데이션 색상이 각각 시작되는 위치와 끝나는 위치를 퍼센트로 지정
+  50%: 개병 이미지의 위치 설정 50%는 가로축 중심에 이미지를 정렬한다는 의미
+  no-repeat: 개병 이미지 반복 x 설정
+  */
+  background: linear-gradient(180deg, rgba(112, 93, 80, 0.8) 0, rgba(112, 93, 80, 0.8) 90%), url("../../public/developer2.jpg") 50% no-repeat;
+  background-size: cover;
+  /* 이미지가 컨테이너 크기에 맞게 조정 */
+  height: 600px;
+  text-align: center;
+}
+
+#name {
+  margin-top: 100px;
+  font-size: 55px;
+  font-weight:900;
+  color: #e9e3e3;
+}
+
+#split-bar {
+  width: 6.25rem;
+  margin: 1.5rem auto;
+  border-top: .3rem solid #db5c2a;
+  opacity: 1;
+  margin-bottom: 60px;
+}
+
+#sub-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #c4bdbd;
+  margin-top: 10px;
 }
 
 .about {
-  background-color: #504f4f;
+  background-color: #ffffff;
 }
 
 .skills {
-  background-color: #504f4f;
+  background-color: #070707;
 }
 
 .archiving {
@@ -192,5 +248,4 @@ html, body {
     display: flex;
   }
 }
-
 </style>
