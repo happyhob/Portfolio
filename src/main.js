@@ -9,12 +9,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 
 import { faLink,faUser,faPhone,faCalendar,faMap,faEnvelope,faGraduationCap,
-    faCode,faFileCode,faServer,faCloudArrowUp, faHandshake
+    faCode,faFileCode,faServer,faCloudArrowUp, faHandshake, faPenToSquare
   } from '@fortawesome/free-solid-svg-icons';
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-library.add(faLink,faUser,faPhone,faCalendar,faMap,faEnvelope,faGraduationCap, faCode ,faFileCode,faServer,faCloudArrowUp,faHandshake,faGithub);
+library.add(faLink,faUser,faPhone,faCalendar,faMap,faEnvelope,faGraduationCap, faCode ,faFileCode,faServer,faCloudArrowUp,faHandshake,faGithub, faPenToSquare);
 const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon); // 전역 컴포넌트 등록
 app.mount('#app');
