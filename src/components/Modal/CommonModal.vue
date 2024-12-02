@@ -1,7 +1,7 @@
 <template>
     <div class="modal_container" v-if="modal">
         <div class="modal_content">
-            <div>
+            <div class="modal_components">
                 <projectReadme1  v-if="ModalType==='projectReadme1'" ></projectReadme1>
                 <projectReadme2  v-if="ModalType==='projectReadme2'" ></projectReadme2>
             </div>
@@ -78,5 +78,11 @@ export default {
     z-index: 1000;
     margin: 10px;
     /* 다른 요소 위에 표시되도록 설정 */
+}
+
+.modal_components{
+    width: 100%;
+    height: 100%;
+    padding:30px;
 }
 </style>
