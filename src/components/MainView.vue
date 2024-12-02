@@ -17,29 +17,30 @@
 
     <!-- Main Content -->
     <main class="main-content">
+      <!-- title -->
       <section id="title" class="section title">
         <h2 id="name">"이호빈"의 포트폴리오</h2>
         <font-awesome-icon icon="handshake" size="2xl" style="margin-top: 20px;" />
         <h2 id="split-bar"></h2>
         <p id="sub-title">"안녕하세요. 실천하는 개발자 이호빈입니다.</p>
-        <p id="sub-title">실천하는 사람만이 기회를 꿈 꿀 수 있다고 생각합니다</p>
+        <p id="sub-title">실천하는 사람만이 기회를 꿈 꿀 수 있다고 믿기에</p>
         <p id="sub-title">저는 꾸준하게 자기개발을 실천하는 개발자입니다"</p>
       </section>
+      <!-- 자기소개 -->
       <section id="about" class="section about">
         <AboutMe />
       </section>
-
+      <!-- 기술 스텍 -->
       <section id="skills" class="section skills">
         <Skills />
       </section>
-
+      <!-- 활동 -->
       <section id="archiving" class="section archiving">
         <Archiving/>
       </section>
-
+      <!-- 프로젝트 소개 -->
       <section id="projects" class="section projects">
-        <h2>Projects</h2>
-        <p>Highlight your most significant projects and achievements.</p>
+        <Project/>
       </section>
 
       <section id="career" class="section career">
@@ -59,6 +60,9 @@
 import AboutMe from './Index/AbountMe.vue'
 import Skills from './Index/Skills.vue'
 import Archiving from './Index/Archiving.vue'
+import Project from './Index/Project.vue'
+
+import CommonModal from './Modal/CommonModal.vue'
 export default {
   data() {
     return {
@@ -85,6 +89,8 @@ export default {
     AboutMe,
     Skills,
     Archiving,
+    Project,
+    CommonModal,
   },
 };
 </script>
@@ -233,7 +239,7 @@ body {
 }
 
 .projects {
-  background-color: #504f4f;
+  background-color: #fdfdfd;
 }
 
 .career {

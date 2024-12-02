@@ -6,23 +6,35 @@
             <h2 id="archiving-title">Archiving</h2>
         </div>
         <div class="archiving-bottom">
-            <div class="archiving-item">
-                <div id="archiving-item-top">
-                    <div id="archiving-item-box">
-                        <div id="git-title">
-                            <font-awesome-icon :icon="['fab', 'github']" size="2xl" />
-                            <label>GitHub</label>
-                        </div>
-                        <div id="git-content">
-                            <label>happyhob</label>
-                            <button @click="onGithub">방문하기</button>
-                        </div>
-                    </div>
-                    <div id="archiving-item-box">
 
+            <div id="archiving-item-top">
+                <div id="archiving-item-box1">
+                    <div id="git-title">
+                        <font-awesome-icon :icon="['fab', 'github']" size="2xl" />
+                        <label style="font-weight:900;">GitHub</label>
                     </div>
-
+                    <div id="git-content">
+                        <label id="git-id">happyhob</label>
+                        <button id="git-button" @click="onGithub">방문하기</button>
+                    </div>
                 </div>
+                <div id="archiving-item-box2">
+                    <div id="certification-title">
+                        <font-awesome-icon icon="pen-to-square" size="2xl" />
+                        <label style="font-weight:900;">Certification</label>
+                    </div>
+                    <div>
+                        <ul id="certification-list">
+                            <li style="margin-top:10px; font-weight:500;">
+                                .NET 전문가과정 수료-비트교육<br>(23.09 ~ 24.02)
+                            </li>
+                            <li style="margin-top:10px; font-weight:500;">
+                                AWS AI Camp 수료-NextCloud<br>(24.05)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -56,7 +68,7 @@ export default {
 </script>
 
 <style>
-button {
+#git-button {
     background-color: #4caf50;
     /* 배경색 */
     color: white;
@@ -113,21 +125,38 @@ button {
 #archiving-item-top {
     display: flex;
     justify-content: center;
-    margin: 0px 300px 0px 300px;
+    flex-wrap: wrap;
+    /* 요소를 줄 바꿈 가능하도록 설정 */
+    margin: 0;
+    gap: 20px;
+    /* 박스 간격 추가 */
 }
 
-#archiving-item-box {
-    width: 100%;
+#archiving-item-box1,
+#archiving-item-box2 {
+    width: 45%;
+    /* 기본 너비를 45%로 설정 (화면 크기에 따라 조정됨) */
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 30px;
     background-color: #f7f6f6;
     border-radius: 10px;
-    /* 둥근 모서리 */
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.5);
-    /* 그림자 효과 */
     margin: 20px;
+    transition: all 0.3s ease;
+    /* 크기 변화에 부드러운 전환 효과 */
+}
+
+@media screen and (max-width: 1024px) {
+
+    #archiving-item-box1,
+    #archiving-item-box2 {
+        width: 100%;
+        /* 작은 화면에서는 각 박스가 한 줄에 표시되도록 설정 */
+        margin: 10px 0;
+        /* 간격 조정 */
+    }
 }
 
 #git-title {
@@ -137,11 +166,28 @@ button {
     gap: 20px;
     margin-bottom: 20px;
 }
-#git-content{
+
+#git-id {
+    color: #cea32d
+}
+
+#git-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:10px;
+    gap: 10px;
     font-size: 20px
+}
+
+#certification-title {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    gap: 20px;
+}
+
+#certification-list {
+    margin-top: 30px;
+
 }
 </style>
