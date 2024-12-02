@@ -61,6 +61,8 @@ import AboutMe from './Index/AbountMe.vue'
 import Skills from './Index/Skills.vue'
 import Archiving from './Index/Archiving.vue'
 import Project from './Index/Project.vue'
+
+import CommonModal from './Modal/CommonModal.vue'
 export default {
   data() {
     return {
@@ -88,6 +90,7 @@ export default {
     Skills,
     Archiving,
     Project,
+    CommonModal,
   },
 };
 </script>

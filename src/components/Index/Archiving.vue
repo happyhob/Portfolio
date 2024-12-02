@@ -15,7 +15,7 @@
                     </div>
                     <div id="git-content">
                         <label id="git-id">happyhob</label>
-                        <button @click="onGithub">방문하기</button>
+                        <button id="git-button" @click="onGithub">방문하기</button>
                     </div>
                 </div>
                 <div id="archiving-item-box2">
@@ -68,7 +68,7 @@ export default {
 </script>
 
 <style>
-button {
+#git-button {
     background-color: #4caf50;
     /* 배경색 */
     color: white;

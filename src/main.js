@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import store from "./store";
 
 //icon/ font
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -9,12 +10,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 
 import { faLink,faUser,faPhone,faCalendar,faMap,faEnvelope,faGraduationCap,
-    faCode,faFileCode,faServer,faCloudArrowUp, faHandshake, faPenToSquare
+    faCode,faFileCode,faServer,faCloudArrowUp, faHandshake, faPenToSquare, faFolderOpen, faImage, faBook
   } from '@fortawesome/free-solid-svg-icons';
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-library.add(faLink,faUser,faPhone,faCalendar,faMap,faEnvelope,faGraduationCap, faCode ,faFileCode,faServer,faCloudArrowUp,faHandshake,faGithub, faPenToSquare);
+library.add(faLink, faUser, faPhone, faCalendar, faMap,
+  faEnvelope, faGraduationCap, faCode ,faFileCode, faServer, faCloudArrowUp,
+  faHandshake, faGithub, faPenToSquare, faFolderOpen, faImage, faBook);
 const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon); // 전역 컴포넌트 등록
+app.use(store);
 app.mount('#app');
