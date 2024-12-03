@@ -10,14 +10,16 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 
 import { faLink,faUser,faPhone,faCalendar,faMap,faEnvelope,faGraduationCap,
-    faCode,faFileCode,faServer,faCloudArrowUp, faHandshake, faPenToSquare, faFolderOpen, faImage, faBook, faStar
+    faCode,faFileCode,faServer,faCloudArrowUp, faHandshake, faPenToSquare, faFolderOpen, faImage, faBook, faStar,
+    faPaperclip
   } from '@fortawesome/free-solid-svg-icons';
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 library.add(faLink, faUser, faPhone, faCalendar, faMap,
   faEnvelope, faGraduationCap, faCode ,faFileCode, faServer, faCloudArrowUp,
-  faHandshake, faGithub, faPenToSquare, faFolderOpen, faImage, faBook, faStar);
+  faHandshake, faGithub, faPenToSquare, faFolderOpen, faImage, faBook, faStar,
+  faPaperclip);
 const app = createApp(App);
 app.component('font-awesome-icon', FontAwesomeIcon); // 전역 컴포넌트 등록
 app.use(store);

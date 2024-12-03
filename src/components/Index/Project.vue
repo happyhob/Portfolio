@@ -33,11 +33,11 @@
                         <p>Three.js, React, SpringBoot, Blender, Node.js, MySQL, FastAPI </p>
                     </div>
                     <div class="button-area">
-                        <button id="project-bitton"  @click="clickModal()" >
+                        <button id="project-bitton"  @click="clickModal(`projectReadme1`)" >
                             <font-awesome-icon icon="book" />
                             README
                         </button>
-                        <button id="project-bitton" >
+                        <button id="project-bitton" @click="clickModal(`imageReadme1`)" >
                             <font-awesome-icon icon="image" />
                             IMAGE
                         </button>
@@ -75,10 +75,10 @@ export default {
     },
     methods:{
         ...mapMutations("ModalMap",["toggleModal","ModalType"]),
-        clickModal(){
+        clickModal(modalType){
             // this.isModal = !this.isModal;
             // console.log(this.isModal)
-            this.ModalType("projectReadme1")
+            this.ModalType(modalType)
             this.toggleModal();
         }
     },
@@ -225,4 +225,12 @@ export default {
         /* 간격 조정 */
     }
 }
+@media (max-width:768px){
+    #project-box-title{
+        font-size: 10px;
+        font-weight: 300;
+        gap: 10px;
+    }
+}
+
 </style>
