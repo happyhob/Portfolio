@@ -6,6 +6,26 @@
                 2D 안내도 3D QR 플랫폼
             </h2>
         </div>
+        <div class="readme_summary">
+            <font-awesome-icon icon="paperclip" style="color: #FFD43B;" size="xl"/>
+            <h2>Summary</h2>
+        </div>
+        <div class="readme_content">
+            <ul>
+                <li>
+                    content1
+                </li>
+                <li>
+                    content1
+                </li>
+                <li>
+                    content1
+                </li>
+                <li>
+                    content1
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -34,4 +54,26 @@ export default {
     padding-bottom: 5px;
     border-bottom: 1px solid rgb(134, 128, 128);
 }
+
+.readme_summary{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap:20px ;
+    font-size: 20px;
+    padding:10px;
+}
+
+.readme_content{
+    display: flex;
+    align-items: center;
+    margin-left:30px;
+    padding:20px;
+}
+
+li{
+    margin-bottom: 5px;
+}
+
+
 </style>
